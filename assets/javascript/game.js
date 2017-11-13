@@ -74,6 +74,13 @@ function game() {
                 lettersGuessed.innerHTML = inputLetters.join(",").toUpperCase();
 
                 lives--;
+                    //Game end - loss
+                    if (lives === 0) {
+                    ++losses
+                    numberLosses.innerHTML = losses;
+                    resetGame()
+                    playingWord.innerHTML = "Sorry, better luck next time!"
+                    }
             }
 
             //If correct, adds to array and displays
@@ -91,14 +98,6 @@ function game() {
                             numberWins.innerHTML = wins;
                             resetGame()
                             playingWord.innerHTML = "Congratulations! Play Again!"
-                        }
-
-                        //Game end - loss
-                        if (lives === 0) {
-                            ++losses
-                            numberLosses.innerHTML = losses;
-                            resetGame()
-                            playingWord.innerHTML = "Sorry, better luck next time!"
                         }
                     }
                 }
